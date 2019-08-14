@@ -1,20 +1,27 @@
-#include "AbstractCPP.h"
+#include "AbstractCPP.hpp"
+#include "exceptions.hpp"
 
 #include <iostream>
 #include <string>
 #include <vector>
 
 namespace abstractcpp {
-	std::vector<std::string> splitString(std::string string, const char* splitter) {
+	string::string(std::string initialString) {
+		internalString = initialString;
+	}
+
+	std::vector<std::string> string::split(const char* splitter)
+	{
+		std::string tempString = str();
 		std::vector<std::string> stringVector;
 		std::string currentString;
-		for (int i = 0; i < string.length(); i++) {
-			char currentChar = string.at(i);
+		for (int i = 0; i < tempString.length(); i++) {
+			char currentChar = tempString.at(i);
 			if (currentChar == *splitter) {
 				stringVector.push_back(currentString);
 				currentString = "";
 
-				if (string.substr(i + 1, string.size()).find_first_not_of(" ") == std::string::npos)
+				if (tempString.substr(i + 1, tempString.size()).find_first_not_of(" ") == std::string::npos)
 					return stringVector;
 
 				i++;
@@ -25,5 +32,10 @@ namespace abstractcpp {
 		}
 		stringVector.push_back(currentString);
 		return stringVector;
+	}
+
+	bool string::contains(std::string searchString)
+	{
+		throw NotImplementedException();
 	}
 }
