@@ -36,6 +36,6 @@ namespace abstractcpp {
 
 	bool string::contains(std::string searchString)
 	{
-		throw NotImplementedException();
+		return internalString.find(searchString) != std::string::npos;
 	}
 }
