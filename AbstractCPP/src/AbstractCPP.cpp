@@ -38,4 +38,10 @@ namespace abstractcpp {
 	{
 		return internalString.find(searchString) != std::string::npos;
 	}
+
+	bool string::startsWith(std::string comparator)
+	{
+		std::string::size_type comparatorPosition = internalString.find(comparator);
+		return comparatorPosition != std::string::npos && comparatorPosition == 0;
+	}
 }
