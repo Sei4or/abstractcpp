@@ -44,4 +44,10 @@ namespace abstractcpp {
 		std::string::size_type comparatorPosition = internalString.find(comparator);
 		return comparatorPosition != std::string::npos && comparatorPosition == 0;
 	}
+
+	bool string::endsWith(std::string comparator)
+	{
+		std::string::size_type comparatorPosition = internalString.find_last_of(comparator);
+		return comparatorPosition != std::string::npos && comparatorPosition == internalString.size() - 1;
+	}
 }
