@@ -10,4 +10,15 @@ Coming soon
 
 # Using this library
 
-Currently you will have to compile it yourself.
+#### Static Library ####
+You can use CMake to build this library
+```
+$ git clone https://github.com/Sei4or/abstractcpp.git
+$ cd abstractcpp
+$ mkdir build
+$ cd build
+$ cmake ..
+```
+
+#### Example ####
+There is an example file located in the src folder.
