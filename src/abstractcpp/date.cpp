@@ -4,7 +4,6 @@
 #include <sstream>
 
 namespace abstractcpp {
-	// DATE CLASS
 	Date::Date(long long value)
 	{
 		std::chrono::milliseconds duration(value);
@@ -21,7 +20,6 @@ namespace abstractcpp {
 		timeStructure = getTimeStructure(timepoint);
 	}
 
-	// I will forever hate this
 	Date::Date(std::chrono::time_point<std::chrono::system_clock> tp)
 	{
 		timepoint = tp;
@@ -41,7 +39,6 @@ namespace abstractcpp {
 		return Date(std::chrono::system_clock::now());
 	}
 
-	// Seemingly unstable method (Use at your own caution)
 	std::string Date::getDateString()
 	{
 		char buffer[80];
