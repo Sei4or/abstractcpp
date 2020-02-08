@@ -26,9 +26,18 @@ void dateExample() {
 	std::cout << now.getDateString() << std::endl;
 }
 
+void arrayExample()
+{
+	std::vector<int> intArray = { 1, 2, 3 };
+	std::cout << abstractcpp::arrays::to_string(intArray) << std::endl;
+	std::vector<std::vector<int>> twoDArray = { {1, 2, 3}, {11, 4444, 222} };
+	std::cout << abstractcpp::arrays::deep_to_string(twoDArray) << std::endl;
+}
+
 int main() {
 	stringExample();
 	dateExample();
+	arrayExample();
 
 	std::cin.get();
 	return 0;
