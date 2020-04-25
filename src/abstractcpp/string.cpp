@@ -34,13 +34,13 @@ namespace abstractcpp {
 		return internalString.find(searchString) != std::string::npos;
 	}
 
-	bool string::startsWith(std::string comparator)
+	bool string::starts_with(std::string comparator)
 	{
 		std::string::size_type comparatorPosition = internalString.find(comparator);
 		return comparatorPosition != std::string::npos && comparatorPosition == 0;
 	}
 
-	bool string::endsWith(std::string comparator)
+	bool string::ends_with(std::string comparator)
 	{
 		std::string::size_type comparatorPosition = internalString.find_last_of(comparator);
 		return comparatorPosition != std::string::npos && comparatorPosition == internalString.size() - 1;

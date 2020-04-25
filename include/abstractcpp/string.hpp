@@ -14,8 +14,8 @@ namespace abstractcpp {
 
 		std::vector<std::string> split(const char* splitter);
 		bool contains(std::string searchString);
-		bool startsWith(std::string comparator);
-		bool endsWith(std::string comparator);
+		bool starts_with(std::string comparator);
+		bool ends_with(std::string comparator);
 
 		std::string str() { return internalString; }
 	};
