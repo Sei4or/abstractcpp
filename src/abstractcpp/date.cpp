@@ -26,7 +26,7 @@ namespace abstractcpp {
 		timeStructure = getTimeStructure(timepoint);
 	}
 
-	tm Date::getTimeStructure(std::chrono::time_point<std::chrono::system_clock> timepoint)
+	tm Date::get_time_structure(std::chrono::time_point<std::chrono::system_clock> timepoint)
 	{
 		std::time_t t = std::chrono::system_clock::to_time_t(timepoint);
 		struct tm tm;
@@ -39,7 +39,7 @@ namespace abstractcpp {
 		return Date(std::chrono::system_clock::now());
 	}
 
-	std::string Date::getDateString()
+	std::string Date::get_date_string()
 	{
 		char buffer[80];
 		strftime(buffer, 80, "%c", &timeStructure);
@@ -47,52 +47,52 @@ namespace abstractcpp {
 		return buffer;
 	}
 
-	long long Date::getTime()
+	long long Date::get_time()
 	{
 		return std::chrono::time_point_cast<std::chrono::milliseconds>(timepoint).time_since_epoch().count();
 	}
 
-	int Date::getDate()
+	int Date::get_date()
 	{
 		return timeStructure.tm_mday;
 	}
 
-	int Date::getDay()
+	int Date::get_day()
 	{
 		return timeStructure.tm_wday;
 	}
 
-	int Date::getFullYear()
+	int Date::get_full_year()
 	{
 		return timeStructure.tm_year + 1900;
 	}
 
-	int Date::getHours()
+	int Date::get_hours()
 	{
 		return timeStructure.tm_hour;
 	}
 
-	int Date::getMilliseconds()
+	int Date::get_milliseconds()
 	{
 		return timeStructure.tm_sec * 1000;
 	}
 
-	int Date::getMinutes()
+	int Date::get_minutes()
 	{
 		return timeStructure.tm_min;
 	}
 
-	int Date::getMonth()
+	int Date::get_month()
 	{
 		return timeStructure.tm_mon;
 	}
 
-	int Date::getSeconds()
+	int Date::get_seconds()
 	{
 		return timeStructure.tm_sec;
 	}
 
-	bool Date::isDaylightSavings()
+	bool Date::is_daylight_savings()
 	{
 		if (timeStructure.tm_isdst < 0) return NULL;
 		return timeStructure.tm_isdst > 0;
