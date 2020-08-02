@@ -1,4 +1,5 @@
 #include "abstractcpp/arrays.hpp"
+
 #include <vector>
 
 namespace abstractcpp
@@ -10,6 +11,19 @@ namespace abstractcpp
 		for (int i = 0; i < arr.size(); i++)
 		{
 			stringified_array += std::to_string(arr[i]);
+			if (i + 1 < arr.size()) stringified_array += ", ";
+		}
+		stringified_array += "]";
+		return stringified_array;
+	}
+
+	template<>
+	std::string internal_to_string(const std::vector<std::string>& arr)
+	{
+		std::string stringified_array = "[";
+		for (int i = 0; i < arr.size(); i++)
+		{
+			stringified_array += '\"' + arr[i] + '\"';
 			if (i + 1 < arr.size()) stringified_array += ", ";
 		}
 		stringified_array += "]";
@@ -61,6 +75,11 @@ namespace abstractcpp
 		return internal_to_string<long double>(arr);
 	}
 
+	std::string arrays::to_string(const std::vector<std::string>& arr)
+	{
+		return internal_to_string<std::string>(arr);
+	}
+
 	template<typename T>
 	std::string internal_deep_to_string(const std::vector< std::vector<T> >& arr)
 	{
@@ -68,6 +87,19 @@ namespace abstractcpp
 		for (int i = 0; i < arr.size(); i++)
 		{
 			stringified_array += internal_to_string<T>(arr[i]);
+			if (i + 1 < arr.size()) stringified_array += ", ";
+		}
+		stringified_array += "]";
+		return stringified_array;
+	}
+
+	template<>
+	std::string internal_deep_to_string(const std::vector < std::vector<std::string> >& arr)
+	{
+		std::string stringified_array = "[";
+		for (int i = 0; i < arr.size(); i++)
+		{
+			stringified_array += internal_to_string<std::string>(arr[i]);
 			if (i + 1 < arr.size()) stringified_array += ", ";
 		}
 		stringified_array += "]";
@@ -117,5 +149,10 @@ namespace abstractcpp
 	std::string arrays::deep_to_string(const std::vector< std::vector<long double> >& arr)
 	{
 		return internal_deep_to_string<long double>(arr);
+	}
+
+	std::string arrays::deep_to_string(const std::vector< std::vector<std::string> >& arr)
+	{
+		return internal_deep_to_string<std::string>(arr);
 	}
 }
