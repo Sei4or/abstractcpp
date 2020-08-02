@@ -8,7 +8,7 @@ namespace abstractcpp {
 	{
 		std::chrono::milliseconds duration(value);
 		timepoint = std::chrono::time_point<std::chrono::system_clock>(duration);
-		timeStructure = getTimeStructure(timepoint);
+		timeStructure = get_time_structure(timepoint);
 	}
 
 	Date::Date(std::string dateString)
@@ -17,13 +17,13 @@ namespace abstractcpp {
 		std::stringstream ss(dateString);
 		ss >> std::get_time(&timeStructure, "%b %d %Y %H:%M:%S");
 		timepoint = std::chrono::system_clock::from_time_t(std::mktime(&timeStructure));
-		timeStructure = getTimeStructure(timepoint);
+		timeStructure = get_time_structure(timepoint);
 	}
 
 	Date::Date(std::chrono::time_point<std::chrono::system_clock> tp)
 	{
 		timepoint = tp;
-		timeStructure = getTimeStructure(timepoint);
+		timeStructure = get_time_structure(timepoint);
 	}
 
 	tm Date::get_time_structure(std::chrono::time_point<std::chrono::system_clock> timepoint)
