@@ -7,9 +7,10 @@ void stringExample() {
 
 	std::vector<std::string> vectorString = testString.split(",");
 	std::cout << "String options" << std::endl;
-	for (std::vector<std::string>::const_iterator i = vectorString.begin(); i != vectorString.end(); i++) { // yes I could use the iterator, but this was for testing
+	for (std::vector<std::string>::const_iterator i = vectorString.begin(); i != vectorString.end(); i++) {
 		std::cout << *i << std::endl;
 	}
+	std::cout << "Vector size: " + vectorString.size() << std::endl;
 
 	std::cout << std::boolalpha << testString.contains("2") << std::endl;
 	std::cout << std::boolalpha << testString.starts_with("option 1") << std::endl;
@@ -21,8 +22,11 @@ void dateExample() {
 	abstractcpp::Date date2 = abstractcpp::Date(1);
 	abstractcpp::Date now = abstractcpp::Date::now();
 
+	std::cout << "2000 Date get_time" << std::endl;
 	std::cout << date.get_time() << std::endl;
+	std::cout << "First millisecond get_full_year" << std::endl;
 	std::cout << date2.get_full_year() << std::endl;
+	std::cout << "now get_date_string" << std::endl;
 	std::cout << now.get_date_string() << std::endl;
 }
 
